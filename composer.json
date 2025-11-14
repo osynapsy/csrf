@@ -14,7 +14,9 @@
         }
     ],
     "require": {
-        "php" : ">=8.0.0"
+        "php" : ">=8.0.0",
+        "osynapsy/osynapsy-core" : "@stable",
+        "osynapsy/osynapsy-html2" : "@stable"        
     },
     "autoload" : {
         "psr-4": {
