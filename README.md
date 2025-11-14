@@ -25,7 +25,7 @@ composer require osynapsy/csrf
 
 ## Usage
 
-## Adding CSRF fields to a form
+### Adding CSRF fields to a form
 
 ```php
 use Osynapsy\Csrf\FormCsrf;
@@ -40,7 +40,7 @@ This will add two hidden fields to your form:
 - csrf_nonce
 - csrf_token
 
-## Checking CSRF in an action
+### Checking CSRF in an action
 
 Extend your action from Osynapsy\Csrf\Action\AbstractAction:
 
