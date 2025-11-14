@@ -30,14 +30,14 @@ use Osynapsy\Csrf\FormCsrf;
 
 class AbstractAction extends ParentAction
 {
-    protected function checkCsrf()
+    protected function checkCsrf($secretKey)
     {
         $nonce = $_POST[FormCsrf::FIELD_NONCE] ?? null;
         $token = $_POST[FormCsrf::FIELD_TOKEN] ?? null;
         if ($nonce === null || $token === null) {
             $this->raiseException('Invalid request.');
         }
-        $csrf = new Token(self::SECRET_KEY);
+        $csrf = new Token($secretKey);
         if (!$csrf->check($nonce, $token)) {
             error_log("CSRF FAIL on ".static::class." from IP ".($_SERVER['REMOTE_ADDR'] ?? 'unknown'));
             $this->raiseException('Invalid request.');
