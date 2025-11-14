@@ -58,19 +58,14 @@ The check will throw an exception if the CSRF token is missing or invalid.
 ### Security Notes
 
 Only enable CSRF on forms that perform sensitive POST operations.
-
 Use HTTPS and set secure cookies for sessions.
-
 Keep SECRET_KEY secret and unique per project.
-
 The package is stateless, so no server-side session storage is required.
 
 ### Classes
 
 Osynapsy\Csrf\Token – Generates and verifies CSRF tokens.
-
 Osynapsy\Csrf\FormCsrf – Helper to apply CSRF fields to a form.
-
 Osynapsy\Csrf\Action\AbstractAction – Base action with checkCsrf() method.
 
 ## License
