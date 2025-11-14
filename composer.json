@@ -1,0 +1,24 @@
+{
+    "name": "osynapsy/csrf",
+    "version": "1.0",
+    "homepage": "http://www.osynapsy.net/assert",
+    "type": "library",
+    "description": "Osynapsy CSRF protection package providing simple nonce + token generation for secure forms and actions.",
+    "keywords": ["Osynapsy", "CSRF"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pietro Celeste",
+            "email": "p.celeste@osynapsy.net",
+            "homepage": "https://github.com/osynapsy/csrf/wiki"
+        }
+    ],
+    "require": {
+        "php" : ">=8.0.0"
+    },
+    "autoload" : {
+        "psr-4": {
+            "Osynapsy\\Csrf\\": "src/"
+        }
+    }
+}
