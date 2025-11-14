@@ -11,9 +11,9 @@ class FormCsrf
 
     public static function apply(Tag $form, string $secretKey)
     {
-        list($nonce, $token) = self::generateCsrfToken($secretKey);
-        $form->add(new InputHidden(self::FIELD_NONCE))->setValue($nonce);
-        $form->add(new InputHidden(self::FIELD_TOKEN))->setValue($token);
+        $token = self::generateCsrfToken($secretKey);
+        $form->add(new InputHidden(self::FIELD_NONCE))->setValue($token['nonce']);
+        $form->add(new InputHidden(self::FIELD_TOKEN))->setValue($token['token']);
         return $form;
     }
 
