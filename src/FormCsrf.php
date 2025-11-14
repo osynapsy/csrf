@@ -24,9 +24,26 @@ use Osynapsy\Html\Tag;
  */
 class FormCsrf
 {
+    /**
+     * Name of the nonce hidden field.
+     */
     const FIELD_NONCE = 'csrf_nonce';
+
+    /**
+     * Name of the token hidden field.
+     */
     const FIELD_TOKEN = 'csrf_token';
 
+    /**
+     * Applies CSRF protection fields to the given form.
+     *
+     * Generates a new CSRF nonce and token pair, then adds them to the form
+     * as hidden input fields.
+     *
+     * @param Tag $form The form object to add CSRF fields to.
+     * @param string $secretKey Secret key used to generate the CSRF token.
+     * @return Tag The form object with CSRF fields added.
+     */
     public static function apply(Tag $form, string $secretKey)
     {
         $token = self::generateCsrfToken($secretKey);
@@ -35,6 +52,12 @@ class FormCsrf
         return $form;
     }
 
+    /**
+     * Generates a CSRF nonce and token pair.
+     *
+     * @param string $secretKey Secret key used to generate the CSRF token.
+     * @return array Array containing [nonce, token].
+     */
     protected static function generateCsrfToken($secretKey)
     {
         return (new Token($secretKey))->generate();
